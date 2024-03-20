@@ -1,9 +1,6 @@
+import DetalleReserva from "./pages/DetalleReserva";
 function App() {
-  return(
-    <h1>
-      Hello world
-    </h1>
-  );
+  return <DetalleReserva />;
 }
 
-export default App
+export default App;
