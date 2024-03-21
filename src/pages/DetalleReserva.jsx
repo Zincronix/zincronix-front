@@ -1,17 +1,33 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import Subtitle from "../components/Typography/Subtitle";
-import TextContent from "../components/Typography/TextContent";
-import Text from "../components/Typography/Text";
-import Button from "../components/Buttons/Button";
-import TextArea from "../components/Inputs/TextArea";
+import { Subtitle, TextContent, Text } from "../components/Typography";
+import { TextArea, TextInput } from "../components/Inputs";
+import { Button, CascadeButton } from "../components/Buttons";
 
 function DetalleReserva() {
+  const [showDocentes, setShowDocentes] = useState(false);
+  const [showMaterias, setShowMaterias] = useState(false);
+  const [showGrupos, setShowGrupos] = useState(false);
+
+  const handleShowCascade = (field) => {
+    if (field == "docentes") {
+      setShowDocentes(!showDocentes);
+      return;
+    }
+    if (field == "materias") {
+      setShowMaterias(!showMaterias);
+      return;
+    }
+    if (field == "grupos") {
+      setShowGrupos(!showGrupos);
+      return;
+    }
+  };
   return (
     <>
       <Subtitle>Detalles de la reserva:</Subtitle>
       <Container>
-        <Div>
+        <Form onSubmit={() => console.log("submit")}>
           <table>
             <tr>
               <td>
@@ -19,10 +35,23 @@ function DetalleReserva() {
               </td>
               <td>
                 <div className="docente-field">
-                  <div className="box-selected">
-                    <Text>MARCO VEIZAGA, JUAN RAMON</Text>
-                  </div>
-                  <Button className="add-btn">+ Agregar docente</Button>
+                  <TextInput
+                    type="text"
+                    disabled={true}
+                    // placeholder={"MARIA BLANCO, RENAN FLORES"}
+                    value="MARIA BLANCO, RENAN FLORES"
+                  />
+                  <CascadeButton
+                    buttonText="+ Agregar docente"
+                    buttonProps={{
+                      type: "button",
+                      onClick: () => handleShowCascade("docentes"),
+                    }}
+                    showCascade={showDocentes}
+                  >
+                    <Text>MARIA LETICIA BLANCO COCA</Text>
+                    <Text>RENAN FLORES</Text>
+                  </CascadeButton>
                 </div>
               </td>
             </tr>
@@ -35,7 +64,17 @@ function DetalleReserva() {
                   <div className="box-selected">
                     <Text>REDES AVANZADAS, CALCULO II</Text>
                   </div>
-                  <Button className="add-btn">+ Agregar materia</Button>
+                  <CascadeButton
+                    buttonText="+ Agregar materia"
+                    buttonProps={{
+                      type: "button",
+                      onClick: () => handleShowCascade("materias"),
+                    }}
+                    showCascade={showMaterias}
+                  >
+                    <Text>REDES AVANZADAS</Text>
+                    <Text>CALCULO II</Text>
+                  </CascadeButton>
                 </div>
               </td>
             </tr>
@@ -48,7 +87,17 @@ function DetalleReserva() {
                   <div className="box-selected">
                     <Text>CALCULO II/G1, REDES AVANZADAS/G3</Text>
                   </div>
-                  <Button className="add-btn">+ Agregar grupo</Button>
+                  <CascadeButton
+                    buttonText="+ Agregar grupo"
+                    buttonProps={{
+                      type: "button",
+                      onClick: () => handleShowCascade("grupos"),
+                    }}
+                    showCascade={showGrupos}
+                  >
+                    <Text>CALCULO II / G1</Text>
+                    <Text>REDES AVANZADAS / G3</Text>
+                  </CascadeButton>
                 </div>
               </td>
             </tr>
@@ -64,19 +113,16 @@ function DetalleReserva() {
           <table>
             <tr>
               <td>
-                <Button
-                  type="primary"
-                  onClick={() => console.log(docenteSelected)}
-                >
+                <Button type="submit" typeBtn="primary" onClick={""}>
                   RESERVAR
                 </Button>
               </td>
               <td className="cancel">
-                <Button type="secondary">CANCELAR</Button>
+                <Button typeBtn="secondary">CANCELAR</Button>
               </td>
             </tr>
           </table>
-        </Div>
+        </Form>
       </Container>
     </>
   );
@@ -90,7 +136,7 @@ const Container = styled.div`
   background-color: #f5f5f5;
 `;
 
-const Div = styled.div`
+const Form = styled.form`
   // background-color: white;
   display: flex;
   flex-direction: column;

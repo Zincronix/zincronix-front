@@ -4,7 +4,7 @@ import Title from "../components/Typography/Title";
 import ProgressBar from "../components/Others/ProgressBar";
 
 const SolicitarReserva = ({ content }) => {
-  const [currentState, setCurrentState] = useState(1);
+  const [currentState, setCurrentState] = useState(3);
   return (
     <Div>
       <Title>SOLICITAR RESERVA DE AMBIENTE</Title>

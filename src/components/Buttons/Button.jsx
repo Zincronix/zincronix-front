@@ -1,14 +1,26 @@
 import React from "react";
 import styled from "styled-components";
 
-const Button = ({ children, type, onClick }) => {
-  if (type == "primary") {
-    return <PrimaryBtn onClick={onClick}>{children}</PrimaryBtn>;
+const Button = ({ children, typeBtn, onClick, type }) => {
+  if (typeBtn == "primary") {
+    return (
+      <PrimaryBtn onClick={onClick} type={type}>
+        {children}
+      </PrimaryBtn>
+    );
   } else {
-    if (type == "secondary") {
-      return <SecondaryBtn onClick={onClick}>{children}</SecondaryBtn>;
+    if (typeBtn == "secondary") {
+      return (
+        <SecondaryBtn onClick={onClick} type={type}>
+          {children}
+        </SecondaryBtn>
+      );
     } else {
-      return <Btn onClick={onClick}>{children}</Btn>;
+      return (
+        <Btn onClick={onClick} type={type}>
+          {children}
+        </Btn>
+      );
     }
   }
 };
@@ -28,7 +40,7 @@ const Btn = styled.button`
   }
 `;
 
-const PrimaryBtn = styled.button`
+const PrimaryBtn = styled(Btn)`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -48,7 +60,7 @@ const PrimaryBtn = styled.button`
     background-color: rgb(7, 37, 64, 0.7);
   }
 `;
-const SecondaryBtn = styled.button`
+const SecondaryBtn = styled(Btn)`
   display: flex;
   align-items: center;
   justify-content: center;
