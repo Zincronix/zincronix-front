@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+
 import { Subtitle, TextContent, Text } from "../components/Typography";
 import { TextArea, TextInput } from "../components/Inputs";
 import { Button, CascadeButton } from "../components/Buttons";
@@ -8,6 +9,24 @@ function DetalleReserva() {
   const [showDocentes, setShowDocentes] = useState(false);
   const [showMaterias, setShowMaterias] = useState(false);
   const [showGrupos, setShowGrupos] = useState(false);
+
+  const [docentesList, setDocentesList] = useState([
+    "MARIA LETICIA BLANCO COCA",
+    "PATRICIA ROMERO",
+  ]);
+
+  const [materiasList, setMateriasList] = useState([
+    "REDES AVANZADAS",
+    "CALCULO II",
+  ]);
+  const [gruposList, setGruposList] = useState([
+    "REDES AVANZADAS / G3",
+    "CALCULO II / G1",
+  ]);
+
+  const [docentesSelected, setDocentesSelected] = useState([]);
+  const [materiasSelected, setMateriasSelected] = useState([]);
+  const [gruposSelected, setGruposSelected] = useState([]);
 
   const handleShowCascade = (field) => {
     if (field == "docentes") {
@@ -39,7 +58,8 @@ function DetalleReserva() {
                     type="text"
                     disabled={true}
                     // placeholder={"MARIA BLANCO, RENAN FLORES"}
-                    value="MARIA BLANCO, RENAN FLORES"
+                    //value="MARIA BLANCO, RENAN FLORES"
+                    value={docentesSelected}
                   />
                   <CascadeButton
                     buttonText="+ Agregar docente"
@@ -49,8 +69,11 @@ function DetalleReserva() {
                     }}
                     showCascade={showDocentes}
                   >
-                    <Text>MARIA LETICIA BLANCO COCA</Text>
-                    <Text>RENAN FLORES</Text>
+                    {docentesList.map((docente, index) => (
+                      <>
+                        <Text key={index}>{docente}</Text>
+                      </>
+                    ))}
                   </CascadeButton>
                 </div>
               </td>
@@ -72,8 +95,11 @@ function DetalleReserva() {
                     }}
                     showCascade={showMaterias}
                   >
-                    <Text>REDES AVANZADAS</Text>
-                    <Text>CALCULO II</Text>
+                    {materiasList.map((materia, index) => (
+                      <>
+                        <Text key={index}>{materia}</Text>
+                      </>
+                    ))}
                   </CascadeButton>
                 </div>
               </td>
@@ -95,8 +121,11 @@ function DetalleReserva() {
                     }}
                     showCascade={showGrupos}
                   >
-                    <Text>CALCULO II / G1</Text>
-                    <Text>REDES AVANZADAS / G3</Text>
+                    {gruposList.map((grupo, index) => (
+                      <>
+                        <Text key={index}>{grupo}</Text>
+                      </>
+                    ))}
                   </CascadeButton>
                 </div>
               </td>
