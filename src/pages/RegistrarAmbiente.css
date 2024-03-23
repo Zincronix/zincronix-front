@@ -1,0 +1,124 @@
+.container {
+  border: 1px solid #000;
+}
+
+h1 {
+  text-align: center;
+}
+
+.form-container-fields {
+  display: flex;
+  padding: 10px;
+  flex-direction: row;
+  margin-bottom: 10px;
+  justify-content: center;
+}
+
+.fields {
+  min-width: 600px;
+  max-width: 700px;
+}
+
+.form-field {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 40px;
+}
+
+.form-field > input {
+  width: 300px;
+  border: none;
+  border-bottom: 1px solid #000000;
+}
+
+.form-field > select {
+  width: 300px;
+  border: none;
+  border-bottom: 1px solid #000000;
+}
+
+.field-6 > input {
+  max-width: 50px;
+}
+
+.form-condicion {
+  margin-bottom: 10px;
+}
+
+.form-add-condicion {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 40px;
+  margin-right: 115px;
+}
+
+.form-add-condicion > input {
+  background-color: transparent;
+  border: none;
+  color: #003770; 
+  cursor: pointer; 
+  padding: 0; 
+}
+
+.image {
+  padding-left: 60px;
+  display: flex;
+  min-width: 250px;
+  max-width: 700px;
+  align-items: center;
+}
+
+.preview {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.preview {
+  background-color: #eee;
+  height: 250px;
+  width: 250px;
+  border: 1px solid #000;
+}
+
+.form-container-buttons {
+  text-align: center;
+  margin: 20px;
+}
+
+.form-container-buttons > input:first-child {
+  margin-right: 20px
+}
+
+.form-container-buttons > input:nth-child(2) {
+  margin-left: 20px
+}
+
+.image input {
+  margin: auto
+}
+
+.button {
+  border-radius: 10px;
+  border: none;
+  width: 200px;
+  height: 50px;
+  font-size: medium;
+  color: #fff;
+}
+
+.registrar {
+  background-color: #072543 ;
+}
+
+.cancelar {
+  background-color: #A21426;
+}
+
+.button:hover {
+  cursor: pointer;
+}
+
+input:focus {
+  outline:none
+}
