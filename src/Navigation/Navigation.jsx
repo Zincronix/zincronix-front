@@ -5,6 +5,7 @@ import Slidebar from "../components/SlideBar/slidebar";
 import SolicitarReserva from "../pages/SolicitarReserva";
 import DetalleReserva from "../pages/DetalleReserva";
 import styled from "styled-components";
+import Header from "../components/Header/header";
 
 export const getRoutes = () => {
   return createBrowserRouter([
@@ -15,7 +16,7 @@ export const getRoutes = () => {
     },
     {
       path: "/reservar",
-      element: <Main aside={<Slidebar />} header={"HeaderComponent"} />,
+      element: <Main aside={<Slidebar />} header={<Header />} />,
       children: [
         {
           path: "/reservar/detalle",
@@ -23,32 +24,6 @@ export const getRoutes = () => {
         },
       ],
     },
-    // {
-    //   path: "/",
-    //   element: (
-    //     <Main
-    //       aside={<Slidebar />}
-    //       header={"HeaderComponent"}
-    //       main={<SolicitarReserva content={<h1>RESERVA</h1>} />}
-    //     />
-    //   ),
-    // },
-    // {
-    //   path: "/admin",
-    //   element: (
-    //     <Main
-    //       aside={<Slidebar />}
-    //       header={"HeaderComponent"}
-    //       main={<SolicitarReserva content={<DetalleReserva />} />}
-    //     />
-    //   ),
-    //   children: [
-    //     {
-    //       path: "/admin/reservar",
-    //       element: <SolicitarReserva content={<DetalleReserva />} />,
-    //     },
-    //   ],
-    // },
   ]);
 };
 
