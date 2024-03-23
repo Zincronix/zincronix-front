@@ -1,18 +1,25 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHome, faUniversity, faClock, faChalkboardTeacher, faAngleRight, faAngleDown } from '@fortawesome/free-solid-svg-icons'; 
-import Text from "../Typography/Text";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faHome,
+  faUniversity,
+  faClock,
+  faChalkboardTeacher,
+  faAngleRight,
+  faAngleDown,
+} from "@fortawesome/free-solid-svg-icons";
 
 const NavContainer = styled.div`
   width: 180px;
   height: 100%;
-  background-color: #3C5468;
+  background-color: #3c5468;
   position: fixed;
   left: 0;
   top: 60px;
   padding: 20px;
-  font-family: 'Inter';
+  font-family: "Inter";
   @media (max-width: 768px) {
     width: 100%;
     height: auto;
@@ -25,9 +32,9 @@ const NavContainer = styled.div`
 const NavItem = styled.div`
   display: flex;
   align-items: center;
-  margin-bottom: 25px; 
+  margin-bottom: 25px;
   color: #fff;
-  font-family: 'Inter';
+  font-family: "Inter";
 
   &:hover {
     text-decoration: underline;
@@ -39,7 +46,7 @@ const IconButton = styled.button`
   border: none;
   color: #fff;
   cursor: pointer;
-  font-family: 'Inter';
+  font-family: "Inter";
 `;
 
 const SubMenu = styled.div`
@@ -47,13 +54,13 @@ const SubMenu = styled.div`
   color: #fff;
   cursor: pointer;
   font-size: 14px;
-  font-family: 'Inter';
+  font-family: "Inter";
 `;
 
 const SubMenuItem = styled.div`
   margin-bottom: 20px;
   cursor: pointer;
-  font-family: 'Inter';
+  font-family: "Inter";
 
   &:hover {
     text-decoration: underline;
@@ -62,56 +69,71 @@ const SubMenuItem = styled.div`
 
 const NavBar = () => {
   const [ambientesExpanded, setAmbientesExpanded] = useState(false);
-  const [docentesExpanded, setDocentesExpanded] = useState(false); 
+  const [docentesExpanded, setDocentesExpanded] = useState(false);
 
-  
   const handleAmbientesClick = () => {
-    setAmbientesExpanded(!ambientesExpanded); 
+    setAmbientesExpanded(!ambientesExpanded);
   };
 
   const handleDocentesClick = () => {
-    setDocentesExpanded(!docentesExpanded); 
+    setDocentesExpanded(!docentesExpanded);
   };
 
   return (
     <NavContainer>
       <NavItem>
-        <FontAwesomeIcon icon={faHome} style={{ marginRight: '14px' }} />
-        Inicio
+        <FontAwesomeIcon icon={faHome} style={{ marginRight: "14px" }} />
+        <Link to="/">Inicio</Link>
       </NavItem>
-      
-      <NavItem>
-        <FontAwesomeIcon icon={faUniversity} style={{ marginRight: '14px' }} />
+
+      <NavItem onClick={handleAmbientesClick}>
+        <FontAwesomeIcon icon={faUniversity} style={{ marginRight: "14px" }} />
         Ambientes
-        <IconButton onClick={handleAmbientesClick}>
-          <FontAwesomeIcon icon={ambientesExpanded ? faAngleDown : faAngleRight} />
+        <IconButton>
+          <FontAwesomeIcon
+            icon={ambientesExpanded ? faAngleDown : faAngleRight}
+          />
         </IconButton>
       </NavItem>
-      
+
       {ambientesExpanded && (
         <SubMenu>
-          <SubMenuItem>Todos los ambientes</SubMenuItem>
-          <SubMenuItem>Agregar ambiente</SubMenuItem>
+          <SubMenuItem>
+            <Link to="/todosLosAmbientes">Todos los ambientes</Link>
+          </SubMenuItem>
+          <SubMenuItem>
+            <Link to="/agregarAmbiente">Agregar ambiente</Link>
+          </SubMenuItem>
         </SubMenu>
       )}
 
       <NavItem>
-        <FontAwesomeIcon icon={faClock} style={{ marginRight: '14px' }} />
-        Reservas
+        <FontAwesomeIcon icon={faClock} style={{ marginRight: "14px" }} />
+        <Link to="/reservar/detalle">Reservas</Link>
       </NavItem>
-      
-      <NavItem>
-        <FontAwesomeIcon icon={faChalkboardTeacher} style={{ marginRight: '14px' }} />
+
+      <NavItem onClick={handleDocentesClick}>
+        <FontAwesomeIcon
+          icon={faChalkboardTeacher}
+          style={{ marginRight: "14px" }}
+        />
         Docentes
-        <IconButton onClick={handleDocentesClick}>
-          <FontAwesomeIcon icon={docentesExpanded ? faAngleDown : faAngleRight} />
+        <IconButton>
+          <FontAwesomeIcon
+            icon={docentesExpanded ? faAngleDown : faAngleRight}
+          />
         </IconButton>
       </NavItem>
-      
+
       {docentesExpanded && (
         <SubMenu>
-          <SubMenuItem>Todos los docentes</SubMenuItem>
-          <SubMenuItem>Agregar docente</SubMenuItem>
+          <SubMenuItem>
+            <Link to="/todosAmbientes">Todos los docentes</Link>
+          </SubMenuItem>
+          <SubMenuItem>
+            {" "}
+            <Link to="/agregarDocente">Agregar docente</Link>
+          </SubMenuItem>
         </SubMenu>
       )}
     </NavContainer>
@@ -119,5 +141,3 @@ const NavBar = () => {
 };
 
 export default NavBar;
-
-

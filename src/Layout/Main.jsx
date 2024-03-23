@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { Outlet } from "react-router-dom";
 
 const Main = ({ aside, header, main }) => {
   return (
@@ -7,7 +8,10 @@ const Main = ({ aside, header, main }) => {
       <StyledHeader>{header} </StyledHeader>
       <Div>
         <StyledAside>{aside}</StyledAside>
-        <StyledMain>{main}</StyledMain>
+        {/* <StyledMain>{main}</StyledMain> */}
+        <StyledMain>
+          <Outlet />
+        </StyledMain>
       </Div>
     </Container>
   );
