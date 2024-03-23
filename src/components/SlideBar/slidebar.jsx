@@ -5,12 +5,12 @@ import { faHome, faUniversity, faClock, faChalkboardTeacher, faAngleRight, faAng
 import Text from "../Typography/Text";
 
 const NavContainer = styled.div`
-  width: 180px;
+  width: 150px;
   height: 100%;
   background-color: #3C5468;
   position: fixed;
   left: 0;
-  top: 60px;
+  top: 70px;
   padding: 20px;
   font-family: 'Inter';
   @media (max-width: 768px) {
@@ -25,7 +25,7 @@ const NavContainer = styled.div`
 const NavItem = styled.div`
   display: flex;
   align-items: center;
-  margin-bottom: 25px; 
+  margin-bottom: 40px; 
   color: #fff;
   font-family: 'Inter';
 
@@ -43,7 +43,8 @@ const IconButton = styled.button`
 `;
 
 const SubMenu = styled.div`
-  margin-left: 20px;
+  margin-left: 25px;
+  margin-top: -20px;
   color: #fff;
   cursor: pointer;
   font-size: 14px;
