@@ -28,9 +28,10 @@ const NavItem = styled.div`
   margin-bottom: 40px; 
   color: #fff;
   font-family: 'Inter';
-
+  transition: box-shadow 0.2s; 
+  text-decoration: underline;
   &:hover {
-    text-decoration: underline;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.3); 
   }
 `;
 
@@ -40,6 +41,11 @@ const IconButton = styled.button`
   color: #fff;
   cursor: pointer;
   font-family: 'Inter';
+  transition: box-shadow 0.2s; 
+
+  &:hover {
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.2); 
+  }
 `;
 
 const SubMenu = styled.div`
