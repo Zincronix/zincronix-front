@@ -12,12 +12,12 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 const NavContainer = styled.div`
-  width: 180px;
+  width: 150px;
   height: 100%;
-  background-color: #3c5468;
+  background-color: #072543;
   position: fixed;
   left: 0;
-  top: 60px;
+  top: 70px;
   padding: 20px;
   font-family: "Inter";
   @media (max-width: 768px) {
@@ -32,12 +32,13 @@ const NavContainer = styled.div`
 const NavItem = styled.div`
   display: flex;
   align-items: center;
-  margin-bottom: 25px;
+  margin-bottom: 40px; 
   color: #fff;
-  font-family: "Inter";
-
+  font-family: 'Inter';
+  transition: box-shadow 0.2s; 
+  text-decoration: underline;
   &:hover {
-    text-decoration: underline;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.3); 
   }
 `;
 
@@ -46,11 +47,17 @@ const IconButton = styled.button`
   border: none;
   color: #fff;
   cursor: pointer;
-  font-family: "Inter";
+  font-family: 'Inter';
+  transition: box-shadow 0.2s; 
+
+  &:hover {
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.2); 
+  }
 `;
 
 const SubMenu = styled.div`
-  margin-left: 20px;
+  margin-left: 25px;
+  margin-top: -20px;
   color: #fff;
   cursor: pointer;
   font-size: 14px;
