@@ -7,7 +7,7 @@ import Text from "../Typography/Text";
 const NavContainer = styled.div`
   width: 150px;
   height: 100%;
-  background-color: #3C5468;
+  background-color: #072543;
   position: fixed;
   left: 0;
   top: 70px;

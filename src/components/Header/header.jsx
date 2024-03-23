@@ -1,15 +1,17 @@
 import React from "react";
 import styled from "styled-components";
+import LogoUniversidad from "../Images/logo_umss.png";
+import LogoFacultad from "../Images/logo_fcyt.jpeg";
 
 const Header = () => {
   return (
     <StyledHeader>
-      <Imagen src="./Images/logo_umss.png" alt="LogoUniversidad" />
-      <TopRedRectangulo />
+      <Imagen src= {LogoUniversidad} alt="LogoUniversidad" />
+      <TopRectangulo1 />
       <Titulo>FACULTAD DE CIENCIAS Y TECNOLOGÍA</Titulo>
-      <TopBlueRectangulo />
+      <TopRectangulo2 />
       <WhiteRectangulo />
-      <ImagenD src="./Images/logo_fcyt.png" alt="LogoFacultad" />
+      <ImagenD src = {LogoFacultad} alt="LogoFacultad" />
     </StyledHeader>
   );
 };
@@ -29,7 +31,7 @@ const WhiteRectangulo = styled.div`
   z-index: 1; 
 `;
 
-const TopBlueRectangulo = styled.div`
+const TopRectangulo2 = styled.div`
   height: 15px; 
   background-color: #072543; 
   width: 110%; 
@@ -39,12 +41,12 @@ const TopBlueRectangulo = styled.div`
   z-index: 2;
 `;
 
-const TopRedRectangulo = styled.div`
+const TopRectangulo1 = styled.div`
   height: 8px; 
   background-color: #A21426; 
   width: 80%; 
   position: absolute; 
-  top: 70%; 
+  top: 75%; 
   right: 0%; 
   transform: translateY(-50%); 
   z-index: 3; 
@@ -60,22 +62,23 @@ const Titulo = styled.div`
   font-family: 'Inter';
   font-weight: bold;
   z-index: 4; 
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
 `;
 
 const Imagen = styled.img`
   position: absolute;
-  top: 50%;
+  top: 45%;
   left: 20px; 
   transform: translateY(-50%); 
-  height: 50px;
+  height: 120px;
   z-index: 4; 
 `;
 
 const ImagenD = styled.img`
   position: absolute;
-  top: 10px;
-  right: 10px;
-  height: 50px;
+  top: 3px;
+  right: 20px;
+  height: 45px;
   z-index: 4;
 `;
 
