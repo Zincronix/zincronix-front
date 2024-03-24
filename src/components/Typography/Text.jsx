@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 
-const Text = ({ children }) => {
-  return <StyledTxt>{children}</StyledTxt>;
+const Text = ({ children, ...props }) => {
+  return <StyledTxt {...props}>{children}</StyledTxt>;
 };
 export default Text;
 

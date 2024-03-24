@@ -19,6 +19,7 @@ const Dropdown = styled.div`
 `;
 const DropdownContent = styled.div`
   display: block;
+  z-index: 9999;
   position: absolute;
   background-color: #f9f9f9;
   min-width: 280px;

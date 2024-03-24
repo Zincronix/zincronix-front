@@ -43,6 +43,8 @@ const StyledAside = styled.div`
 
 const StyledMain = styled.div`
   display: flex;
-  //background-color: pink;
+  // background-color: pink;
   width: 100%;
+  padding-top: 5em;
+  padding-left: 5em;
 `;

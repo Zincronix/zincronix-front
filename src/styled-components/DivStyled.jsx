@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { Text } from "../Typography";
+import { Text } from "../components/Typography";
 const TextInput = ({ value, onChange, placeholder, type, disabled }) => {
   return (
     <StyledInput
@@ -9,12 +9,14 @@ const TextInput = ({ value, onChange, placeholder, type, disabled }) => {
       value={value}
       onChange={onChange}
       placeholder={placeholder}
-    ></StyledInput>
+    >
+      <Text>{value}</Text>
+    </StyledInput>
   );
 };
 
 export default TextInput;
-const StyledInput = styled.input`
+const StyledInput = styled.div`
   display: flex;
   min-height: 32px;
   border: solid 2px #a3acb9;
