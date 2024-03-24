@@ -8,6 +8,8 @@ import { getDocentes } from "../services/docenteService";
 import { getMaterias } from "../services/materiaService";
 import { getGrupos } from "../services/grupoService";
 import adaptDocente from "../adapters/docenteAdapter";
+import adaptMateria from "../adapters/materiaAdapter";
+import adaptGrupo from "../adapters/grupoAdapter";
 import DivStyled from "../styled-components/DivStyled";
 import Asterisk from "../components/Others/Asterisk";
 function DetalleReserva() {
@@ -34,6 +36,7 @@ function DetalleReserva() {
   const loadDocentes = async () => {
     try {
       const docentesData = await getDocentes();
+
       const adaptedDocete = docentesData.map(adaptDocente);
       setDocentes(adaptedDocete);
     } catch (error) {
@@ -44,7 +47,8 @@ function DetalleReserva() {
   const loadMaterias = async () => {
     try {
       const materiasData = await getMaterias();
-      setMaterias(materiasData);
+      const adaptedMateria = materiasData.map(adaptMateria);
+      setMaterias(adaptedMateria);
       //console.log(materiasData);
     } catch (error) {
       console.error("Error al cargar materias: ", error);
@@ -54,7 +58,8 @@ function DetalleReserva() {
   const loadGrupos = async () => {
     try {
       const gruposData = await getGrupos();
-      setGrupos(gruposData);
+      const adaptedGrupo = gruposData.map(adaptGrupo);
+      setGrupos(adaptedGrupo);
       //console.log(grupos);
     } catch (error) {
       console.error("Error al cargar grupos: ", error);

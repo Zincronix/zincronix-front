@@ -1,7 +1,7 @@
 const docenteAdapter = (docenteData) => {
   return {
     id: docenteData.id,
-    nombre: docenteData.nombre,
+    nombre: docenteData.name,
   };
 };
 export default docenteAdapter;
