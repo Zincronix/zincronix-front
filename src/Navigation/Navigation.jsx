@@ -6,6 +6,7 @@ import SolicitarReserva from "../pages/SolicitarReserva";
 import DetalleReserva from "../pages/DetalleReserva";
 import styled from "styled-components";
 import Header from "../components/Header/header";
+import { RegistrarDocente } from "../pages/RegistrarDocente";
 
 export const getRoutes = () => {
   return createBrowserRouter([
@@ -23,6 +24,17 @@ export const getRoutes = () => {
           element: <SolicitarReserva content={<DetalleReserva />} />,
         },
       ],
+    },
+    {
+      path: "/registrar",
+     
+      element: <Main aside={<Slidebar />} header={<Header />} />,
+      children: [
+        {
+          path: "/registrar/docente",
+          element: <RegistrarDocente />
+        },
+      ],         
     },
   ]);
 };
