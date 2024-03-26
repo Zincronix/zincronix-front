@@ -6,6 +6,7 @@ import SolicitarReserva from "../pages/SolicitarReserva";
 import DetalleReserva from "../pages/DetalleReserva";
 import styled from "styled-components";
 import Header from "../components/Header/header";
+import { RegistrarAmbiente } from "../pages/RegistrarAmbiente";
 
 export const getRoutes = () => {
   return createBrowserRouter([
@@ -24,6 +25,10 @@ export const getRoutes = () => {
         },
       ],
     },
+    {
+      path:"/agregarAmbiente",
+      element: <RegistrarAmbiente/>,
+    }
   ]);
 };
 
