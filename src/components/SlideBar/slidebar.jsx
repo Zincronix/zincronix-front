@@ -88,10 +88,10 @@ const NavBar = () => {
 
   return (
     <NavContainer>
-      <NavItem>
+     {/* <NavItem>
         <FontAwesomeIcon icon={faHome} style={{ marginRight: "14px" }} />
         <Link to="/">Inicio</Link>
-      </NavItem>
+      </NavItem> */}
 
       <NavItem onClick={handleAmbientesClick}>
         <FontAwesomeIcon icon={faUniversity} style={{ marginRight: "14px" }} />

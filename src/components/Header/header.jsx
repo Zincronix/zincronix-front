@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import LogoUniversidad from "../Images/logo_umss.png";
-import LogoFacultad from "../Images/logo_fcyt.jpeg";
+import LogoFacultad from "../Images/logo_fcyt.png";
 
 const Header = () => {
   return (
@@ -32,11 +32,11 @@ const WhiteRectangulo = styled.div`
 `;
 
 const TopRectangulo2 = styled.div`
-  height: 15px; 
+  height: 8px; 
   background-color: #072543; 
-  width: 110%; 
+  width: 75%; 
   position: absolute; 
-  top: 85%;
+  top: 100%;
   right: 0%; 
   z-index: 2;
 `;
@@ -44,9 +44,9 @@ const TopRectangulo2 = styled.div`
 const TopRectangulo1 = styled.div`
   height: 8px; 
   background-color: #A21426; 
-  width: 80%; 
+  width: 65%; 
   position: absolute; 
-  top: 75%; 
+  top: 90%; 
   right: 0%; 
   transform: translateY(-50%); 
   z-index: 3; 
@@ -54,10 +54,10 @@ const TopRectangulo1 = styled.div`
 
 const Titulo = styled.div`
   position: absolute;
-  top: 40%; 
-  left: 50%;
+  top: 50%; 
+  right:10%;
   transform: translate(-50%, -50%); 
-  font-size: 30px;
+  font-size: 25px;
   color: #A21426;
   font-family: 'Inter';
   font-weight: bold;
@@ -67,18 +67,18 @@ const Titulo = styled.div`
 
 const Imagen = styled.img`
   position: absolute;
-  top: 45%;
-  left: 20px; 
+  top: 50%;
+  left: 0px; 
   transform: translateY(-50%); 
-  height: 120px;
+  height: 125px;
   z-index: 4; 
 `;
 
 const ImagenD = styled.img`
   position: absolute;
-  top: 3px;
-  right: 20px;
-  height: 45px;
+  top: 5px;
+  right: 25px;
+  height: 50px;
   z-index: 4;
 `;
 
