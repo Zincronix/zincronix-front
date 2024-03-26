@@ -1,21 +1,64 @@
+import { useState } from "react";
 import "./RegistrarAmbiente.css"
+
 export function RegistrarAmbiente () {
+  const [image, setImage] = useState('')
+  const [nameError, setNameError] = useState('')
+  const [capacityError, setCapacityError] = useState('')
+  const [descriptionError, setDescriptionError] = useState('')
+  function handleFileUpload(event) {
+    setImage(event.target.files[0])
+  }
 
   function handleSubmit(event) {
     event.preventDefault()
-    alert("Desea enviar el formulario?")
-    const {nombre, ubicacion, condicion, descripcion, capacidad} = Object.fromEntries(
-      new FormData(event.target)
-    )
-    const data = {
-      nombre: nombre,
-      ubicacion: ubicacion,
-      condicionesEspeciales: condicion,
-      descripcion: descripcion,
-      capacidad: capacidad
+
+    const {nombre, capacidad, descripcion} = Object.fromEntries(new FormData(event.target))
+    
+    const nombreLongitud = nombre.length
+    
+    const specialChar = new RegExp('[^\p{L}\s._0-9\-]+')
+
+    if(specialChar.test(nombre)){
+      setNameError("No se permiten caracteres especiales")
+      return
+    }
+
+    const emptySpace = new RegExp('\s')
+
+    if (emptySpace.test(nombre)){
+      setNameError("No se permiten espacios")
+      return
+    }
+
+    if (nombreLongitud  === 0) {
+      setNameError("El campo nombre es obligatorio")
+      return
+    }
+
+    if (nombreLongitud > 15) {
+      setNameError("Solo se aceptan 15 caracteres")
+      return
     }
     
-    console.log(data)
+    if (!capacidad) {
+      setCapacityError("El campo capacidad es obligatorio")
+      return
+    }
+
+    if (capacidad > 1000) {
+      setCapacityError("No se admite números mayores a 1000")
+      return
+    }
+
+    if (descripcion.length > 500){
+      setDescriptionError("Solo se admite como máximo 500 caracteres")
+      return
+    }
+    
+    alert("Desea enviar el formulario?")    
+    const fd = new FormData(event.target)
+    
   }
 
   return (
@@ -25,37 +68,34 @@ export function RegistrarAmbiente () {
         <section className="form-container-fields">
           <div className="fields">
             <div className="form-field field-1">
-              <label className="form-label">Nombre <span>*</span>:</label>
+              <label className="form-label">Nombre: <span>*</span></label>
               <input name="nombre" type="text" className="form-input" />
+              <p>{nameError}</p>
             </div>
             <div className="form-field field-2">
-              <label className="form-label">Ubicación:</label>
-              <input name="ubicacion" type="text" className="form-input" />
+              <label className="form-label">Capacidad: <span>*</span></label>
+              <input name="capacidad" type="number" className="form-input" min={0}/>
+              <p>{capacityError}</p>
             </div>
             <div className="form-field form-condicion field-3">
               <label className="form-label">Condiciones Especiales:</label>
               <select name="condicion" id="condicion">
-                <option value="1">ASLDFKJLSAKDF</option>
-                <option value="2">ASDFASDFASDFS</option>
-                <option value="3">ASDFFFFFFSADF</option>
+                <option value="1">Data</option>
+                <option value="2">Ventiladores</option>
+                <option value="3">Sillas especiales</option>
+                <option value="4">Televisor</option>
               </select>
             </div>
-            <div className="form-add-condicion field-4">
-              <input type="button" value="+ Agregar condición especial" />
-            </div>
-            <div className="form-field field-5">
+            <div className="form-field field-4">
               <label className="form-label">Descripción:</label>
-              <input name="descripcion" type="text" className="form-input" />
-            </div>
-            <div className="form-field field-6">
-              <label className="form-label">Capacidad:</label>
-              <input name="capacidad" type="number" className="form-input" />
+              <textarea name="descripcion" cols="38" rows="8"></textarea>
+              <p>{descriptionError}</p>
             </div>
           </div>
 
           <div className="image">
             <div className="preview">
-              <input type="button" value="Insertar imagen" />
+              <input type="file" name="imagen" onClick={handleFileUpload} multiple={false} />
             </div>
           </div>
         </section>
