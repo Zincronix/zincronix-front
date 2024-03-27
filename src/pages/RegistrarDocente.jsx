@@ -1,5 +1,8 @@
 import styled from "styled-components";
 
+const departaments = ['fisica', 'matematicas', 'informatica'];
+const materia = ['fisica 1', 'elementos', 'programacion'];
+
 export const RegistrarDocente = () => {
   return (
     <ContainerMain>
@@ -8,18 +11,38 @@ export const RegistrarDocente = () => {
 				<FieldsContainer>
 					<FieldSetStyled>
 						<LabelStyled htmlFor="name-jos">Nombre*: </LabelStyled>
-						<InputStyled type="text" name="name-jos" />
+						<InputStyled tfisicaype="text" name="name-jos" />
 					</FieldSetStyled>
 
 					<FieldSetStyled>
 						<LabelStyled htmlFor="mail-jos">Correo Electronico*: </LabelStyled>
 						<InputStyled type="text" name="mail-jos" />
-					</FieldSetStyled>					
+					</FieldSetStyled>
+
+					<FieldSetStyled>
+						<LabelStyled htmlFor="mail-jos">Departamento*: </LabelStyled>
+						<SelectStyled name="select-departamento">
+							{
+								departaments.map((name, index) => 
+									<option key={index} value={name}>{name}</option> )
+							}
+						</SelectStyled>
+					</FieldSetStyled>
+					<FieldSetStyled>
+						<LabelStyled htmlFor="mail-jos">Materia(s)*: </LabelStyled>
+						<SelectStyled name="select-materia">
+							{
+								materia.map((name, index) => 
+									<option key={index} value={name}>{name}</option> )
+							}
+						</SelectStyled>
+					</FieldSetStyled>
+
 				</FieldsContainer>
 
 				<ButtonsContainer>
-					<ButtonStyled>GUARDAR</ButtonStyled>
 					<ButtonStyled>CANCELAR</ButtonStyled>
+					<ButtonStyled>GUARDAR</ButtonStyled>
 				</ButtonsContainer>
 				
     </ContainerMain>
@@ -81,3 +104,14 @@ const ButtonStyled = styled.button`
 	padding: 0.5em 2em;
 `;
 
+const SelectStyled = styled.select`
+	padding: 0.5em 2em;
+	width: 19em;
+
+`;
+
+const SelectStyled2 = styled.select`
+	padding: 0.5em 2em;
+	width: 19em;
+
+`;
