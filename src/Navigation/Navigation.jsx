@@ -4,6 +4,7 @@ import Main from "../Layout/Main";
 import Slidebar from "../components/SlideBar/slidebar";
 import SolicitarReserva from "../pages/SolicitarReserva";
 import DetalleReserva from "../pages/DetalleReserva";
+import ListaAmbientes from "../pages/BuscadorAmbiente";
 import styled from "styled-components";
 import Header from "../components/Header/header";
 
@@ -21,6 +22,16 @@ export const getRoutes = () => {
         {
           path: "/reservar/detalle",
           element: <SolicitarReserva content={<DetalleReserva />} />,
+        },
+      ],
+    },
+    {
+      path: "/todosLosAmbientes",
+      element: <Main aside={<Slidebar />} header={<Header />} />,
+      children: [
+        {
+          path: "/todosLosAmbientes",
+          element: <ListaAmbientes content={<ListaAmbientes />} />,
         },
       ],
     },

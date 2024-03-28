@@ -134,9 +134,9 @@ const NavBar = () => {
 
       {docentesExpanded && (
         <SubMenu>
-          <SubMenuItem>
+         {/* <SubMenuItem>
             <Link to="/todosAmbientes">Todos los docentes</Link>
-          </SubMenuItem>
+          </SubMenuItem> */}
           <SubMenuItem>
             {" "}
             <Link to="/agregarDocente">Agregar docente</Link>
