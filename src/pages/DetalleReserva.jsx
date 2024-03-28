@@ -12,6 +12,7 @@ import adaptMateria from "../adapters/materiaAdapter";
 import adaptGrupo from "../adapters/grupoAdapter";
 import DivStyled from "../styled-components/DivStyled";
 import Asterisk from "../components/Others/Asterisk";
+
 function DetalleReserva() {
   const [showDocentes, setShowDocentes] = useState(false);
   const [showMaterias, setShowMaterias] = useState(false);
