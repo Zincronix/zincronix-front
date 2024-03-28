@@ -1,31 +1,41 @@
 import { useState } from "react";
 import "./RegistrarAmbiente.css"
+import Select from '@mui/material/Select'
+import MenuItem from '@mui/material/MenuItem';
 
 export function RegistrarAmbiente () {
-  const [image, setImage] = useState('')
   const [nameError, setNameError] = useState('')
   const [capacityError, setCapacityError] = useState('')
   const [descriptionError, setDescriptionError] = useState('')
   const [imageError, setImageError] = useState('')
+  const [condiciones, setCondiciones] = useState([])
 
   var flag = false
   function handleFileUpload(event) {
     const imagen = event.target.files[0]
-    if (imagen.size > 100000){
+    flag = imagen.size > 100000
+    if (flag){
       setImageError("El tamaño de la imagen no debe ser mayor a 100kb")
     }
-    setImage(event.target.files[0])
   }
+
+  const handleChange = (event) => {
+    const {
+      target: { value },
+    } = event;
+    setCondiciones(
+      typeof value === 'string' ? value.split(',') : value,
+    );
+  };
 
   function handleSubmit(event) {
     event.preventDefault()
 
     const {nombre, capacidad, descripcion} = Object.fromEntries(new FormData(event.target))
     const nombreLongitud = (nombre.trim()).length
-    const imagen = new Image();
 
     const specialChar = new RegExp('[^a-zA-Z0-9]^\s')
-    flag = false;
+    flag = false
 
     if(specialChar.test(nombre)){
       setNameError("No se permiten caracteres especiales")
@@ -34,33 +44,34 @@ export function RegistrarAmbiente () {
 
     if (nombreLongitud  === 0) {
       setNameError("El campo nombre es obligatorio")
-      flag = true;
+      flag = true
     }
 
     if (nombreLongitud > 15) {
       setNameError("Solo se aceptan 15 caracteres")
-      flag = true;
+      flag = true
     }
     
     if (!capacidad) {
       setCapacityError("El campo capacidad es obligatorio")
-      flag = true;
+      flag = true
     }
 
     if (capacidad > 1000) {
       setCapacityError("No se admite números mayores a 1000")
-      flag = true;
+      flag = true
     }
 
     if (descripcion.length > 500){
       setDescriptionError("Solo se admite como máximo 500 caracteres")
-      flag = true;
+      flag = true
     }
 
     if (flag) return
     
     alert("Desea enviar el formulario?")    
     const fd = new FormData(event.target)
+    fd.append("condiciones",condiciones)
 
     setNameError('')
     setCapacityError('')
@@ -70,7 +81,7 @@ export function RegistrarAmbiente () {
 
   return (
     <div className="container">
-      <h1>REGISTRAR AMBIENTE</h1>
+      <h1>AGREGAR AMBIENTE</h1>
       <form onSubmit={handleSubmit} className="form">
         <section className="form-container-fields">
           <div className="fields">
@@ -90,12 +101,32 @@ export function RegistrarAmbiente () {
             </div>
             <div className="form-field form-condicion field-3">
               <label className="form-label">Condiciones Especiales:</label>
-              <select name="condicion" id="condicion">
-                <option value="1">Data</option>
-                <option value="2">Ventiladores</option>
-                <option value="3">Sillas especiales</option>
-                <option value="4">Televisor</option>
-              </select>
+              <Select
+                multiple
+                value={condiciones}
+                onChange={handleChange}
+                sx={{
+                  boxSizing: "border-box",
+                  display: "flex",
+                  minHeight: "32px",
+                  border: "solid 2px #a3acb9",
+                  paddingInline: "0.5em",
+                  borderRadius: "5px",
+                  marginBottom: "0.2em",
+                  width: 240,
+                  height: "auto",
+                  "& fieldset": { border: 'none' },
+                  '& .MuiSelect-select': {
+                    padding: 0,
+                    whiteSpace: "normal !important"
+                  }
+                }}
+              >
+                <MenuItem value="1">Data</MenuItem>
+                <MenuItem value="2">Ventiladores</MenuItem>
+                <MenuItem value="3">Sillas</MenuItem>
+                <MenuItem value="4">Televisor</MenuItem>
+              </Select>
             </div>
             <div className="form-field field-4">
               <label className="form-label">Descripción:</label>
