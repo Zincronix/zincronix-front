@@ -4,5 +4,4 @@ export const grupoAdapter = (grupoData) => {
     nombre: grupoData.name,
   };
 };
-
 export default grupoAdapter;

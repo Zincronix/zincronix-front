@@ -4,5 +4,4 @@ export const docenteAdapter = (docenteData) => {
     nombre: docenteData.name,
   };
 };
-
 export default docenteAdapter;
