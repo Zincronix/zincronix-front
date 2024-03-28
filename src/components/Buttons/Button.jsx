@@ -1,7 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 
-const Button = ({ children, typeBtn, onClick, type }) => {
+const Button = ({ children, typeBtn, onClick, type, color }) => {
+  console.log("color+", color);
   if (typeBtn == "primary") {
     return (
       <PrimaryBtn onClick={onClick} type={type}>
@@ -17,7 +18,7 @@ const Button = ({ children, typeBtn, onClick, type }) => {
       );
     } else {
       return (
-        <Btn onClick={onClick} type={type}>
+        <Btn color={color} onClick={onClick} type={type}>
           {children}
         </Btn>
       );
@@ -29,6 +30,7 @@ export default Button;
 
 const Btn = styled.button`
   border: none;
+  color: ${(props) => props.color || "black"};
   background-color: #f5f5f5;
   font-size: 14px;
   font-weight: lighter;

@@ -28,5 +28,5 @@ const Div = styled.div`
 const Text = styled.p`
   font-family: "Inter";
   font-size: 18px;
-  font-weight: lighter;
+  font-weight: 200;
 `;

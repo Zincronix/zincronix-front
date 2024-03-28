@@ -2,10 +2,19 @@ import React from "react";
 import styled from "styled-components";
 import Button from "../Button";
 
-const CascadeButton = ({ buttonProps, buttonText, children, showCascade }) => {
+const CascadeButton = ({
+  buttonProps,
+  buttonText,
+  children,
+  showCascade,
+  color,
+}) => {
+  console.log(buttonProps);
   return (
     <Dropdown>
-      <Button {...buttonProps}>{buttonText}</Button>
+      <Button {...buttonProps} color={color}>
+        {buttonText}
+      </Button>
       {showCascade && <DropdownContent>{children}</DropdownContent>}
     </Dropdown>
   );

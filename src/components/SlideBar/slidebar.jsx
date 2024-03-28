@@ -36,7 +36,7 @@ const NavItem = styled.div`
   color: #fff;
   font-family: "Inter";
   transition: box-shadow 0.2s;
-  text-decoration: underline;
+  text-decoration: none;
   &:hover {
     box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
   }

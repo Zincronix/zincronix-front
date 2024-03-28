@@ -10,5 +10,5 @@ export default Title;
 const StyledTitle = styled.p`
   font-family: "Inter";
   font-size: 40px;
-  font-weight: lighter;
+  font-weight: 300;
 `;

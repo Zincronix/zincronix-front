@@ -130,6 +130,7 @@ function DetalleReserva() {
                     />
                     <CascadeButton
                       buttonText="+ Agregar docente"
+                      color="#003770"
                       buttonProps={{
                         type: "button",
                         onClick: () => handleShowCascade("docentes"),
@@ -171,6 +172,7 @@ function DetalleReserva() {
 
                     <CascadeButton
                       buttonText="+ Agregar materia"
+                      color="#003770"
                       buttonProps={{
                         type: "button",
                         onClick: () => handleShowCascade("materias"),
@@ -209,6 +211,7 @@ function DetalleReserva() {
                     />
                     <CascadeButton
                       buttonText="+ Agregar grupo"
+                      color="#003770"
                       buttonProps={{
                         type: "button",
                         onClick: () => handleShowCascade("grupos"),
