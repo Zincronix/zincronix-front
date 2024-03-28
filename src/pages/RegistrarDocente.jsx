@@ -1,5 +1,7 @@
 import styled from "styled-components";
 
+import { Button, CascadeButton } from "../components/Buttons";
+
 const departament = ['fisica', 'matematicas', 'informatica'];
 const materia = ['fisica 1', 'elementos', 'programacion'];
 const grupo = ['1', '2', '3'];
@@ -54,10 +56,12 @@ export const RegistrarDocente = () => {
 				</FieldsContainer>
 
 				<ButtonsContainer>
-					<ButtonStyled>CANCELAR</ButtonStyled>
-					<ButtonStyled>GUARDAR</ButtonStyled>
+          <Button type="submit" typeBtn="primary" onClick={""}>
+              GUARDAR
+          </Button>
+          <Button className="cancel" typeBtn="secondary">CANCELAR</Button>
 				</ButtonsContainer>
-				
+        
     </ContainerMain>
   )
 }	
@@ -80,23 +84,24 @@ const FieldsContainer = styled.article`
 `;
 
 const TitleStyled = styled.h1`
-	font-size: 2em;
-	font-weight: 300;
-	font-style: oblique;
+	font-family: "Inter";
+  font-size: 40px;
+  font-weight: lighter;
 `;
 
 const FieldSetStyled = styled.fieldset`
 	display: flex;
 	align-items: center;
-	column-gap: 1em;
+	column-gap: 3em;
 	justify-content: space-between;
 	padding: 0;
 	border: none;
+  font-family: "Inter";
+  font-weight: lighter;
 `;
 
 const LabelStyled = styled.label`
 	font-size: 1em;
-	font-weight: bold;
 `;
 
 const InputStyled = styled.input`
@@ -109,7 +114,6 @@ const InputStyled = styled.input`
 const ButtonsContainer = styled.article`
 	display: flex;
 	justify-content: space-evenly;
-
 	width: 30em;
 `;
 
@@ -120,11 +124,4 @@ const ButtonStyled = styled.button`
 const SelectStyled = styled.select`
 	padding: 0.5em 2em;
 	width: 19em;
-
-`;
-
-const SelectStyled2 = styled.select`
-	padding: 0.5em 2em;
-	width: 19em;
-
 `;
