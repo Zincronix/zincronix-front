@@ -27,14 +27,13 @@ export const getRoutes = () => {
     },
     {
       path: "/registrar",
-     
       element: <Main aside={<Slidebar />} header={<Header />} />,
       children: [
         {
           path: "/registrar/docente",
-          element: <RegistrarDocente />
+          element: <RegistrarDocente />,
         },
-      ],         
+      ],
     },
   ]);
 };
