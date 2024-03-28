@@ -10,3 +10,13 @@ export const getDocentes = async () => {
     throw error;
   }
 };
+
+export const createDocente = async (docenteData) => {
+  try {
+    const response = await api.post("/docentes", docenteData);
+    return response.data;
+  } catch (error) {
+    console.error("Error al crear docente: ", error);
+    throw error;
+  }
+};
