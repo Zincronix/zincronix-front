@@ -1,7 +1,8 @@
 import styled from "styled-components";
 
-const departaments = ['fisica', 'matematicas', 'informatica'];
+const departament = ['fisica', 'matematicas', 'informatica'];
 const materia = ['fisica 1', 'elementos', 'programacion'];
+const grupo = ['1', '2', '3'];
 
 export const RegistrarDocente = () => {
   return (
@@ -23,11 +24,12 @@ export const RegistrarDocente = () => {
 						<LabelStyled htmlFor="mail-jos">Departamento*: </LabelStyled>
 						<SelectStyled name="select-departamento">
 							{
-								departaments.map((name, index) => 
+								departament.map((name, index) => 
 									<option key={index} value={name}>{name}</option> )
 							}
 						</SelectStyled>
 					</FieldSetStyled>
+
 					<FieldSetStyled>
 						<LabelStyled htmlFor="mail-jos">Materia(s)*: </LabelStyled>
 						<SelectStyled name="select-materia">
@@ -37,6 +39,17 @@ export const RegistrarDocente = () => {
 							}
 						</SelectStyled>
 					</FieldSetStyled>
+					
+					<FieldSetStyled>
+						<LabelStyled htmlFor="mail-jos">Grupo(s)*: </LabelStyled>
+						<SelectStyled name="select-grupo">
+							{
+								grupo.map((name, index) => 
+									<option key={index} value={name}>{name}</option> )
+							}
+						</SelectStyled>
+					</FieldSetStyled>
+					<br />
 
 				</FieldsContainer>
 
