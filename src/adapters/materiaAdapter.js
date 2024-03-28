@@ -4,3 +4,4 @@ export const materiaAdapter = (materiaData) => {
     nombre: materiaData.name,
   };
 };
+export default materiaAdapter;
